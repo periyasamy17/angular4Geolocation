@@ -97,7 +97,6 @@ public restaurantPlaceApicall(lat,lan){
       if(this.res.results){
        for(var i = 0; i < this.res.results.length; i ++ ){
          this.rstaurantnameList = true;
-         alert("Hello");
         this.rstaurantname = this.res.results[i].name;
         this.formatted_address = this.res.results[i].vicinity;
 
