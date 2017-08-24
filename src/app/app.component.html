@@ -1,3 +1,22 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <h1 style="color:blueviolet">{{ title }}</h1>
+
+  <!-- this creates a google map on the page with the given lat/lng from -->
+  <!-- the component as the initial center of the map: -->
+  <div class="form-group">
+    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl" size="100">
+  </div>
+
+  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+<div *ngIf="rstaurantnameList" class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item licolor"><strong> Rstaurant name :</strong> <span> {{ rstaurantname }} </span></li>
+      <li class="list-group-item licolor"><strong>Address:</strong> <code>{{formatted_address}}</code></li>
+    </ul>
+  </div>
+  <h3 style="color:red" *ngIf="!rstaurantnameList"> No restaurant for this location<span style="color:black">
+  {{formatted_address}}  </span> </h3>
+  
+</div>
